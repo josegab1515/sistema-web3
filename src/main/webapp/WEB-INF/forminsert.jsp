@@ -14,7 +14,7 @@
     </h1>
     <form action="/tarefas/insert" method="post">
         <label>descricao</label>
-        <input type="text" name="descicao" />
+        <input type="text" name="descricao" />
         <button type="submit">enviar</button>
     </form>
 </body>

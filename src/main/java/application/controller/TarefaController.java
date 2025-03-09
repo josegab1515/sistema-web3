@@ -1,10 +1,11 @@
 package application.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.ui.Model;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import application.model.Tarefa;
 import application.repository.TarefaRepository;
@@ -13,21 +14,21 @@ import application.repository.TarefaRepository;
 @RequestMapping("/tarefas")
 public class TarefaController {
     @Autowired
-    private TarefaController tarefaRepo;
+    private TarefaRepository tarefaRepo;
 
     @RequestMapping("/list")
-    public String select(Model ui) {
-        ui.addAttribute("tarefa", tarefaRepo.findAll());
+    public String selec(Model ui) {
+        ui.addAttribute("tarefas", tarefaRepo.findAll());
         return "list";
     }
 
-    @RequestMapping(value= "/inset", method = RequestMapping.POST)
+    @RequestMapping("/insert")
     public String insert() {
         return "forminsert";
-
     }
 
-    public String insert(@RequestParam("descricao") String descricao){
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    public String insert(@RequestParam("descricao") String descricao) {
         Tarefa tarefa = new Tarefa();
         tarefa.setDescricao(descricao);
 

@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -13,11 +13,11 @@
 
 <body>
     <h1>
-        Olá Spring!!
+        Olá lista!
     </h1>
     <ul>
         <c:forEach var="item" items="${tarefas}">
-            <li>${item.descicao}</li>
+            <li>${item.descricao}</li>
         </c:forEach>
     </ul>
 </body>
