@@ -17,9 +17,18 @@
     </h1>
     <ul>
         <c:forEach var="item" items="${tarefas}">
-            <li>${item.descricao}</li>
+            <li>
+                ${item.descricao}
+    
+                <a href="/tarefas/update?id=${item.id}">--Atualizar</a>
+            
+                <a href="/tarefas/delete?id=${item.id}">--remover</a>
+            </li>
         </c:forEach>
     </ul>
+
+    <a href="/tarefas/insert">Adicionar Nova Tarefa</a>
+
 </body>
 
 </html>
